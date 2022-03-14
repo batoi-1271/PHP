@@ -1,0 +1,70 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.content-login .row {
+  border-radius: 50px;
+  height: 500px;
+  width: 800px;
+  border: 5px #e6e3e3 solid;
+  margin: 0 auto;
+}
+
+.content-login .row .img-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-login .row .form-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-login .row .form-login h3 {
+  color: gray;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.content-login .row .form-login form span {
+  color: red;
+}
+
+.content-login .row .form-login form .btn1 {
+  height: 45px;
+  width: 150px;
+  border-radius: 20px;
+  border: none;
+  background-color: gray;
+  margin-top: 50px;
+  color: white;
+}
+
+.content-login .row .form-login form .btn1:hover {
+  background-color: white;
+  color: gray;
+  border: 2px gray solid;
+}
+
+.content-login .row .form-login form .btn1:focus {
+  outline: none !important;
+}
+/*# sourceMappingURL=style1.css.map */
