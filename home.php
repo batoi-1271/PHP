@@ -31,10 +31,10 @@ echo $_SESSION['email'];
 					<a href="news.php">News</a>
 				</li>
 				<li>
-					<a href="about.php">About</a>
+					<a href="admin.php">Admin</a>
 				</li>
 				<li>
-					<a href="contact.php">Contact</a>
+					<a href="update_post.php">Update post</a>
 				</li>
 			</ul>
 		</div>

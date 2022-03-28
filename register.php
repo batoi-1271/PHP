@@ -1,9 +1,11 @@
 <?php
 include("control.php");
 include("uploadfile.php");
+include("testMail.php");
 
 $query = new AbstractQuery();
 $upload =  new UploadFile();
+
 $checkCookie = $query->loginWithCookie();
 if ($checkCookie != null) {
 	header('Location: index.php');
@@ -156,11 +158,15 @@ if ($checkCookie != null) {
 				}
 				return $check;
 			}
-
+			@include ("./testMail.php");
 			if (isset($_POST['submit'])) {
 				if (checkValue()) {
 					global $query;
 					global $upload;
+					$sendEmail = $_POST['email'];
+					$subject = "Dang ky thanh cong!";
+					$body = "Tai khoan cua ban la: $_POST[username]";
+					$altBody = "Xin cam on!";
 					$favorite = "";
 					if (isset($_POST['hoclaptrinh'])) $favorite .= $_POST['hoclaptrinh'] . ",";
 					if (isset($_POST['xemphim'])) $favorite .= $_POST['xemphim'] . ",";
@@ -169,7 +175,8 @@ if ($checkCookie != null) {
 					$avatar = $upload->upload();
 					if ($avatar != null) {
 						$run = $query->register($_POST['email'], $_POST['username'], md5($_POST['password']), $_POST['fullname'], $_POST['gender'], $favorite, $avatar);
-						if ($run != null)
+						if ($run != null) 
+							sendMail($sendEmail, $subject, $body, $altBody);
 							echo '<script>alert("Đăng kí thành công")</script>';
 					} else
 						echo '<script>alert("Upload ảnh không thành công")</script>';

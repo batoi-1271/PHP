@@ -59,6 +59,23 @@ class Data {
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+    
+    public function delete_Post($id) {
+        global $conn;
+        $sql = "DELETE FROM tb_post WHERE id_post = '$id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
+
+    public function update_POST( $author, $title, $date, $scontent, $fullContent, $id) {
+        global $conn;
+
+        $sql = "UPDATE tb_post SET author = '$author', title = '$title',  date = '$date', 
+        s_content = '$scontent', full_content = '$fullContent' WHERE id_post = $id";
+
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }
 
 
