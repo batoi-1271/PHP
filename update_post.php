@@ -105,7 +105,8 @@ $post = $get_Content->select_Content_byID($_GET['update']);
 		</form>
 		<?php
 		if (isset($_POST['submit'])) {
-			$update = $get_Content->update_POST($_POST['author'], str_replace("'", "\'", $_POST['title']), $_POST['date'], str_replace("'", "\'", $_POST['sContent']), str_replace("'", "\'", $_POST['fullContent']), $_GET['update'] );
+			$update = $get_Content->update_POST($_POST['author'], str_replace("'", "\'", $_POST['title']), 
+					$_POST['date'], str_replace("'", "\'", $_POST['sContent']), str_replace("'", "\'", $_POST['fullContent']), $_GET['update'] );
 			if ($update) {
 				echo "<script>alert('Update Successfull!!'); window.location = ('admin.php')</script>";
 			} else {
