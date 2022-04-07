@@ -76,6 +76,15 @@ class Data {
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    public function insert_POST( $author, $title, $date, $scontent, $fullContent) {
+        global $conn;
+
+        $sql = "INSERT INTO tb_post (author, title,  date, s_content, full_content) VALUES ('$author', '$title', '$date', '$scontent', '$fullContent')";
+
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }
 
 

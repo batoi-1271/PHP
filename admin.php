@@ -47,7 +47,7 @@ $post = $get_Content->select_Content();
 		</div>
 	</div>
 	<div class="content">
-        <h3>Post new <a href=""><i class="fas fa-plus"></i></a></h3>
+        <h3>Post new <a href="./insert_post.php"><i class="fas fa-plus"></i></a></h3>
         
         <table id="post">
             <tr>
