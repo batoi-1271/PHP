@@ -1,7 +1,6 @@
 <?php
 include("control.php");
 include("uploadfile.php");
-include("testMail.php");
 
 $query = new AbstractQuery();
 $upload =  new UploadFile();
@@ -10,46 +9,10 @@ $checkCookie = $query->loginWithCookie();
 if ($checkCookie != null) {
 	header('Location: index.php');
 }
-// if (isset($_SESSION['username'])) {
-//     header("Location: index.php");
-// }
-// include("connect.php");
-// if (isset($_POST['submit'])) {
-// 	$username = $_POST['username'];
-// 	$email = $_POST['email'];
-// 	$password = md5($_POST['password']);
-// 	$cpassword = md5($_POST['cpassword']);
-
-// 	if ($password == $cpassword) {
-// 		$sql = "SELECT * FROM users WHERE email='$email'";
-// 		$result = mysqli_query($conn, $sql);
-// 		if (!$result->num_rows > 0) {
-// 			$sql = "INSERT INTO users (username, email, password)
-// 					VALUES ('$username', '$email', '$password')";
-// 			$result = mysqli_query($conn, $sql);
-// 			if ($result) {
-// 				echo "<script>alert('Wow! User Registration Completed.')</script>";
-// 				$username = "";
-// 				$email = "";
-// 				$_POST['password'] = "";
-// 				$_POST['cpassword'] = "";
-// 			} else {
-// 				echo "<script>alert('Woops! Something Wrong Went.')</script>";
-// 			}
-// 		} else {
-// 			echo "<script>alert('Woops! Email Already Exists.')</script>";
-// 		}
-// 	} else {
-// 		echo "<script>alert('Password Not Matched.')</script>";
-// 	}
-// }
-
-// 
 ?>
 
 
 <!DOCTYPE HTML>
-<!-- Website template by freewebsitetemplates.com -->
 <html>
 
 <head>
@@ -74,6 +37,7 @@ if ($checkCookie != null) {
 
 		</div>
 	</div>
+	
 	<div class="container">
 		<form action="" method="POST" enctype="multipart/form-data" class="login-email">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
@@ -136,6 +100,7 @@ if ($checkCookie != null) {
 				<button type="submit" name="submit" class="btn">Register</button>
 			</div>
 		</form>
+		<p class="login-register-text">Have an account? <a href="index.php">Login Here</a></p>
 			<?php
 			function checkValue()
 			{
@@ -158,7 +123,7 @@ if ($checkCookie != null) {
 				}
 				return $check;
 			}
-			@include ("./testMail.php");
+			
 			if (isset($_POST['submit'])) {
 				if (checkValue()) {
 					global $query;
@@ -171,20 +136,25 @@ if ($checkCookie != null) {
 					if (isset($_POST['hoclaptrinh'])) $favorite .= $_POST['hoclaptrinh'] . ",";
 					if (isset($_POST['xemphim'])) $favorite .= $_POST['xemphim'] . ",";
 					if (isset($_POST['choigame'])) $favorite .= $_POST['choigame'] . ",";
+
 					$favorite = substr($favorite, 0, -1);
 					$avatar = $upload->upload();
 					if ($avatar != null) {
 						$run = $query->register($_POST['email'], $_POST['username'], md5($_POST['password']), $_POST['fullname'], $_POST['gender'], $favorite, $avatar);
-						if ($run != null) 
-							sendMail($sendEmail, $subject, $body, $altBody);
+						if ($run != null) {
+							include("testMail.php");
+							$mail = new mail();
+							$mail->sendMail($sendEmail, $subject, $body, $altBody);
 							echo '<script>alert("Đăng kí thành công")</script>';
+						}
+						
 					} else
 						echo '<script>alert("Upload ảnh không thành công")</script>';
 				}
 			}
 			?>
-			<p class="login-register-text">Have an account? <a href="index.php">Login Here</a>.</p>
-		</form>
+			
+		
 	</div>
 
 

@@ -24,7 +24,7 @@
 					<a href="news.php">News</a>
 				</li>
 				<li>
-					<a href="about.php">About</a>
+				<a href="admin.php">Admin</a>
 				</li>
 				<li class="active">
 					<a href="contact.php">Contact</a>

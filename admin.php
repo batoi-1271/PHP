@@ -28,7 +28,7 @@ $post = $get_Content->select_Content();
 				<a href="home.php">Zero Type</a>
 			</div>
 			<ul id="navigation">
-				<li class="active">
+				<li>
 					<a href="home.php">Home</a>
 				</li>
 				<li>
@@ -37,11 +37,11 @@ $post = $get_Content->select_Content();
 				<li>
 					<a href="news.php">News</a>
 				</li>
-				<li>
+				<li class="active">
 					<a href="admin.php">Admin</a>
 				</li>
 				<li>
-					<a href="update_post.php">Update post</a>
+				<a href="contact.php">Contact</a>
 				</li>
 			</ul>
 		</div>

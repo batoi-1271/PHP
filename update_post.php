@@ -14,7 +14,7 @@ $post = $get_Content->select_Content_byID($_GET['update']);
 
 <head>
 	<meta charset="UTF-8">
-	<title>Zerotype Website Template</title>
+	<title>Update post</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">

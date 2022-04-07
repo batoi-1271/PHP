@@ -33,7 +33,7 @@ $content = $get_Content->select_Content();
 				<a href="admin.php">Admin</a>
 				</li>
 				<li>
-					<a href="update_post.php">Update post</a>
+				<a href="contact.php">Contact</a>
 				</li>
 			</ul>
 		</div>
